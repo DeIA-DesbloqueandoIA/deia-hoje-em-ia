@@ -95,6 +95,13 @@ main{padding:16px 18px 22px;display:grid;gap:18px}
 .niveis-pr button[aria-pressed="true"]{background:var(--menta);border-color:var(--menta);color:var(--profundo)}
 .pratica .aviso-previa{background:#F7EEDB;color:#8A5E0E;border-radius:10px;padding:8px 12px;font-size:.82rem;font-weight:600}
 .carregando{font-size:.88rem;color:var(--suave);text-align:center;padding:24px}
+/* Barra de links: aparece só quando o painel é aberto direto, fora do iframe do site */
+.links-site{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;padding:10px 16px;background:var(--branco);border-bottom:1px solid var(--borda)}
+.links-site a{display:inline-flex;align-items:center;gap:6px;font:600 .84rem var(--f-titulo);text-decoration:none;border-radius:999px;padding:8px 14px;min-height:38px}
+.links-site .voltar{color:var(--profundo);border:1px solid var(--borda)}
+.links-site .voltar:hover{background:var(--apoio)}
+.links-site .assinar{background:var(--esmeralda);color:#fff}
+.links-site .assinar:hover{background:#1D7460}
 </style>
 </head>
 <body>
@@ -103,6 +110,12 @@ main{padding:16px 18px 22px;display:grid;gap:18px}
   <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6L13 3z"/></symbol>
 </svg>
+
+<nav class="links-site" id="links-site" aria-label="Desbloqueando IA" hidden>
+  <a class="voltar" href="https://www.desbloqueandoia.com.br/" target="_top">&larr; Voltar ao site Desbloqueando IA</a>
+  <a class="assinar" href="https://www.desbloqueandoia.com.br/#newsletter" target="_top">Receber a Prática da Semana</a>
+</nav>
+<script>try{ if (window.top === window.self) document.getElementById('links-site').hidden = false; }catch(e){}</script>
 
 <header class="topo">
   <div class="topo-l1">
