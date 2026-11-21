@@ -1,4 +1,4 @@
-# Hoje em IA · Desbloqueando IA
+# Notícias de IA · Desbloqueando IA
 
 Painel diário de notícias de IA da [Desbloqueando IA](https://www.desbloqueandoia.com.br/), com a Prática da Semana.
 
