@@ -115,7 +115,22 @@ main{padding:16px 18px 22px;display:grid;gap:18px}
   <a class="voltar" href="https://www.desbloqueandoia.com.br/" target="_top">&larr; Voltar ao site Desbloqueando IA</a>
   <a class="assinar" href="https://www.desbloqueandoia.com.br/#newsletter" target="_top">Receber a Prática da Semana</a>
 </nav>
-<script>try{ if (window.top === window.self) document.getElementById('links-site').hidden = false; }catch(e){}</script>
+<script>
+// Só quando o painel é aberto direto (fora do iframe do site): mostra os links e conta a visita no Google Analytics.
+// Dentro do site a visita já é contada pela própria landing page, então não carregamos o GA de novo.
+try{
+  if (window.top === window.self){
+    document.getElementById('links-site').hidden = false;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-XP3PR17TNS', { page_title: 'Notícias de IA (painel direto)' });
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XP3PR17TNS';
+    document.head.appendChild(ga);
+  }
+}catch(e){}
+</script>
 
 <header class="topo">
   <div class="topo-l1">
