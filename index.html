@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoje em IA · DeIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Painel embutido por iframe: coluna única, cabeçalho fixo com filtro de nível, Prática da Semana em verde, posts curtos em cartões brancos */
+:root{
+  --profundo:#123C3C; --esmeralda:#23856D; --menta:#7FC9B2;
+  --marfim:#F4F1E9; --branco:#FFFFFF; --texto:#1C2622; --suave:#4A5A54;
+  --borda:#E4E0D6; --apoio:#F7F5EF;
+  --ini:#23856D; --int:#8A5E0E; --dev:#3B5BA9;
+  --ini-bg:#E7F0EC; --int-bg:#F7EEDB; --dev-bg:#E6ECF8;
+  --f-titulo:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-texto:"Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--marfim);color:var(--texto);font-family:var(--f-texto);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-titulo);color:var(--profundo);margin:0;text-wrap:balance}
+p{margin:0}
+svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+button:focus-visible{outline:3px solid var(--menta);outline-offset:2px}
+
+.topo{position:sticky;top:0;z-index:5;background:var(--branco);border-bottom:1px solid var(--borda);padding:14px 18px 12px;display:grid;gap:10px}
+.topo-l1{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.marca{display:flex;align-items:center;gap:10px;min-width:0}
+.marca h1{font-size:1.15rem;font-weight:800;letter-spacing:-.01em}
+.vivo{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--suave);white-space:nowrap}
+.vivo i{width:8px;height:8px;border-radius:50%;background:var(--esmeralda);box-shadow:0 0 0 3px var(--ini-bg)}
+.data{font-size:.82rem;color:var(--suave);font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:600 .8rem var(--f-titulo);border:1.5px solid var(--borda);background:var(--branco);color:var(--suave);border-radius:999px;padding:6px 12px;min-height:34px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{background:var(--profundo);border-color:var(--profundo);color:var(--marfim)}
+.ponto{width:8px;height:8px;border-radius:50%}
+.p-ini{background:var(--ini)}.p-int{background:#C08A2A}.p-dev{background:var(--dev)}
+
+main{padding:16px 18px 22px;display:grid;gap:18px}
+
+/* Prática da Semana */
+.pratica{background:var(--profundo);color:rgba(244,241,233,.9);border-radius:16px;padding:18px;display:grid;gap:12px}
+.pratica .olho{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--menta);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pratica h2{color:var(--marfim);font-size:1.22rem;line-height:1.3}
+.pratica p{font-size:.93rem;color:rgba(244,241,233,.8)}
+.pratica .info{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:rgba(244,241,233,.75)}
+.pratica .info span{display:inline-flex;gap:6px;align-items:center}
+.pratica .info svg{color:var(--menta)}
+.prompt{background:#0E3131;border:1px solid rgba(244,241,233,.16);border-radius:12px;overflow:hidden}
+.prompt-topo{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 6px 6px 12px;border-bottom:1px solid rgba(244,241,233,.14);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(244,241,233,.7)}
+.copiar{font:600 .76rem var(--f-titulo);border:1px solid rgba(244,241,233,.25);background:transparent;color:var(--marfim);border-radius:999px;padding:6px 12px;min-height:32px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;text-transform:none;letter-spacing:0}
+.prompt pre{margin:0;padding:12px;font-family:var(--f-mono);font-size:.8rem;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:#E9F2EE}
+.prompt .var{color:#F2C46D}
+.pratica .dev-linha{font-size:.82rem;border-top:1px solid rgba(244,241,233,.14);padding-top:10px;color:rgba(244,241,233,.72)}
+.pratica .dev-linha b{color:var(--marfim);font-weight:600}
+
+/* Feed */
+.grupo{display:grid;gap:10px}
+.grupo-cab{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.grupo-cab h2{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);font-family:var(--f-texto);font-weight:600}
+.grupo-cab span{font-size:.78rem;color:var(--suave);font-variant-numeric:tabular-nums}
+.post{background:var(--branco);border:1px solid var(--borda);border-radius:14px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.76rem;color:var(--suave)}
+.meta time{margin-left:auto;font-variant-numeric:tabular-nums}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.t-ini{background:var(--ini-bg);color:var(--ini)}
+.t-int{background:var(--int-bg);color:var(--int)}
+.t-dev{background:var(--dev-bg);color:var(--dev)}
+.t-tema{background:var(--apoio);color:var(--suave);border:1px solid var(--borda)}
+.post h3{font-size:1rem;line-height:1.35;font-weight:700}
+.post>p{font-size:.9rem;color:var(--suave)}
+.muda{background:var(--apoio);border:1px solid var(--borda);border-radius:10px;padding:9px 12px;display:grid;gap:2px}
+.muda strong{font:700 .66rem var(--f-titulo);letter-spacing:.14em;text-transform:uppercase;color:var(--esmeralda)}
+.muda p{font-size:.88rem;color:var(--texto)}
+.post details{font-size:.85rem;border-top:1px solid var(--borda);padding-top:8px}
+.post summary{cursor:pointer;font-weight:600;color:var(--dev);font-size:.82rem}
+.post pre{margin:8px 0 0;background:var(--apoio);border:1px solid var(--borda);border-radius:8px;padding:10px;font-family:var(--f-mono);font-size:.76rem;line-height:1.55;overflow-x:auto;white-space:pre}
+.vazio{font-size:.88rem;color:var(--suave);border:1.5px dashed var(--borda);border-radius:14px;padding:14px;text-align:center}
+.rodape{font-size:.76rem;color:var(--suave);text-align:center;padding-top:4px}
+.rodape b{color:var(--profundo);font-family:var(--f-titulo)}
+/* Fontes e extras do painel ao vivo */
+.fontes{font-size:.78rem;color:var(--suave);display:flex;flex-wrap:wrap;gap:4px 8px;border-top:1px solid var(--borda);padding-top:8px}
+.fontes a{color:var(--esmeralda);font-weight:600;text-decoration:none;overflow-wrap:anywhere}
+.fontes a:hover{text-decoration:underline}
+.extra{font-size:.85rem;color:var(--texto)}
+.extra b{font-weight:600}
+.niveis-pr{display:flex;gap:6px;flex-wrap:wrap}
+.niveis-pr button{font:600 .74rem var(--f-titulo);border:1px solid rgba(244,241,233,.25);background:transparent;color:rgba(244,241,233,.8);border-radius:999px;padding:5px 11px;min-height:30px;cursor:pointer}
+.niveis-pr button[aria-pressed="true"]{background:var(--menta);border-color:var(--menta);color:var(--profundo)}
+.pratica .aviso-previa{background:#F7EEDB;color:#8A5E0E;border-radius:10px;padding:8px 12px;font-size:.82rem;font-weight:600}
+.carregando{font-size:.88rem;color:var(--suave);text-align:center;padding:24px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-raio" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6L13 3z"/></symbol>
+</svg>
+
+<header class="topo">
+  <div class="topo-l1">
+    <div class="marca"><h1>Hoje em IA</h1><span class="vivo"><i></i><span id="atualizado">Atualizado às 9h</span></span></div>
+    <span class="data" id="data-edicao"></span>
+  </div>
+  <div class="chips" role="group" aria-label="Filtrar por nível">
+    <button class="chip" data-f="todos" aria-pressed="true">Todos</button>
+    <button class="chip" data-f="ini" aria-pressed="false"><span class="ponto p-ini"></span>Iniciante</button>
+    <button class="chip" data-f="int" aria-pressed="false"><span class="ponto p-int"></span>Intermediário</button>
+    <button class="chip" data-f="dev" aria-pressed="false"><span class="ponto p-dev"></span>Dev</button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <p class="carregando">Carregando as notícias verificadas…</p>
+</main>
+
+<script>
+(function(){
+  var FUSO = 'America/Sao_Paulo';
+  var NOMES = {ini:'Iniciante', int:'Intermediário', dev:'Dev'};
+  var previa = false; // Prévias ficam no repositório privado deia-bastidores
+  var main = document.getElementById('conteudo');
+  var filtro = 'todos';
+
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function urlSegura(u){ return /^https:\/\//.test(u) ? u : '#'; }
+  function diaBR(iso){ return new Intl.DateTimeFormat('pt-BR',{timeZone:FUSO, year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date(iso)); }
+  function hojeBR(){ return diaBR(new Date().toISOString()); }
+  function rotuloDia(dataStr){
+    var d = new Date(dataStr + 'T12:00:00-03:00');
+    var txt = new Intl.DateTimeFormat('pt-BR',{timeZone:FUSO, weekday:'long', day:'numeric', month:'long'}).format(d);
+    return txt.charAt(0).toUpperCase() + txt.slice(1);
+  }
+  function rotuloGrupo(dataStr, i){
+    var d = new Date(dataStr + 'T12:00:00-03:00');
+    if (diaBR(d.toISOString()) === hojeBR()) return 'Hoje';
+    var ontem = new Date(Date.now() - 864e5);
+    if (diaBR(d.toISOString()) === diaBR(ontem.toISOString())) return 'Ontem';
+    return new Intl.DateTimeFormat('pt-BR',{timeZone:FUSO, weekday:'long', day:'2-digit', month:'2-digit'}).format(d).replace(/^./, function(c){ return c.toUpperCase(); });
+  }
+  function dataCurta(s){ var p = String(s).split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : s; }
+
+  function postHTML(p){
+    var fontes = (p.fontes || []).map(function(f){
+      return '<a href="' + esc(urlSegura(f.url)) + '" target="_blank" rel="noopener noreferrer">' + esc(f.nome) + '</a>' + (f.data ? ' <span>' + esc(dataCurta(f.data)) + '</span>' : '');
+    }).join('<span aria-hidden="true">·</span>');
+    return '<article class="post" data-n="' + esc(p.nivel) + '">' +
+      '<div class="meta"><span class="tag t-' + esc(p.nivel) + '"><span class="ponto p-' + esc(p.nivel) + '"></span>' + esc(NOMES[p.nivel] || p.nivel) + '</span>' +
+      (p.tema ? '<span class="tag t-tema">' + esc(p.tema) + '</span>' : '') + '</div>' +
+      '<h3>' + esc(p.titulo) + '</h3>' +
+      '<p>' + esc(p.texto) + '</p>' +
+      (p.para_quem ? '<p class="extra"><b>Para quem:</b> ' + esc(p.para_quem) + '</p>' : '') +
+      (p.como_usar ? '<p class="extra"><b>Como usar:</b> ' + esc(p.como_usar) + '</p>' : '') +
+      (p.muda ? '<div class="muda"><strong>O que muda para você</strong><p>' + esc(p.muda) + '</p></div>' : '') +
+      '<div class="fontes"><span>Fonte' + ((p.fontes || []).length > 1 ? 's' : '') + ':</span>' + fontes + '</div>' +
+      '</article>';
+  }
+
+  function praticaHTML(pr){
+    var niveis = ['ini','int','dev'].filter(function(n){ return pr.niveis && pr.niveis[n]; });
+    var botoes = niveis.length > 1 ? '<div class="niveis-pr" role="group" aria-label="Versão da prática">' + niveis.map(function(n){
+      return '<button type="button" data-pn="' + n + '" aria-pressed="false">' + NOMES[n] + '</button>';
+    }).join('') + '</div>' : '';
+    return '<article class="pratica" aria-labelledby="pr-t">' +
+      (pr.aprovada ? '' : '<p class="aviso-previa">Prévia: esta Prática ainda não foi aprovada e não aparece no painel público.</p>') +
+      '<div class="olho"><span>Prática da Semana</span>' + (pr.semana ? '<span aria-hidden="true">·</span><span>Semana ' + esc(pr.semana) + '</span>' : '') + '</div>' +
+      '<h2 id="pr-t">' + esc(pr.titulo) + '</h2>' + botoes +
+      '<p data-pr="descricao"></p>' +
+      '<div class="info">' + (pr.tempo ? '<span><svg class="i"><use href="#i-relogio"/></svg>' + esc(pr.tempo) + '</span>' : '') + '<span data-pr="onde"></span></div>' +
+      '<div class="prompt"><div class="prompt-topo"><span>Prompt pronto</span><button class="copiar" data-alvo="prompt-pratica"><svg class="i"><use href="#i-copy"/></svg><span>Copiar</span></button></div><pre id="prompt-pratica"></pre></div>' +
+      '</article>';
+  }
+
+  function mostrarPratica(pr, nivel){
+    var el = main.querySelector('.pratica'); if (!el) return;
+    var n = pr.niveis[nivel] ? nivel : (pr.niveis.ini ? 'ini' : Object.keys(pr.niveis)[0]);
+    var v = pr.niveis[n];
+    el.querySelector('[data-pr="descricao"]').textContent = v.descricao || '';
+    var onde = el.querySelector('[data-pr="onde"]');
+    onde.innerHTML = v.onde ? '<svg class="i"><use href="#i-raio"/></svg>' + esc(v.onde) : '';
+    el.querySelector('#prompt-pratica').textContent = v.prompt || '';
+    el.querySelectorAll('[data-pn]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.pn === n ? 'true' : 'false'); });
+  }
+
+  function aplicarFiltro(f, pr){
+    filtro = f;
+    document.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.f === f ? 'true' : 'false'); });
+    main.querySelectorAll('.post').forEach(function(p){ p.hidden = !(f === 'todos' || p.dataset.n === f); });
+    main.querySelectorAll('[data-grupo]').forEach(function(g){
+      var vis = g.querySelectorAll('.post:not([hidden])').length;
+      g.querySelector('[data-conta]').textContent = vis === 1 ? '1 notícia' : vis + ' notícias';
+      var v = g.querySelector('.vazio');
+      if (vis === 0 && !v){ v = document.createElement('p'); v.className = 'vazio'; g.appendChild(v); }
+      if (v){ v.hidden = vis !== 0; v.textContent = f === 'todos' ? 'Sem novidades verificadas neste dia.' : 'Nenhuma notícia de nível ' + (NOMES[f] || '') + ' neste dia.'; }
+    });
+    if (pr) mostrarPratica(pr, f === 'todos' ? 'ini' : f);
+  }
+
+  function render(edicoes, praticas){
+    var agora = Date.now();
+    var visiveis = (edicoes.edicoes || []).filter(function(e){ return Date.parse(e.publicar_em) <= agora; })
+      .sort(function(a, b){ return Date.parse(b.publicar_em) - Date.parse(a.publicar_em); }).slice(0, 2);
+    var pr = (praticas.praticas || []).filter(function(p){ return (p.aprovada || previa) && Date.parse(p.inicio) <= agora; })
+      .sort(function(a, b){ return Date.parse(b.inicio) - Date.parse(a.inicio); })[0];
+
+    var html = pr ? praticaHTML(pr) : '';
+    if (!visiveis.length) html += '<p class="vazio">Sem novidades verificadas por enquanto.</p>';
+    visiveis.forEach(function(e, i){
+      html += '<section class="grupo" data-grupo aria-label="' + esc(rotuloGrupo(e.data, i)) + '">' +
+        '<div class="grupo-cab"><h2>' + esc(rotuloGrupo(e.data, i)) + '</h2><span data-conta></span></div>' +
+        (e.posts || []).map(postHTML).join('') + '</section>';
+    });
+    html += '<p class="rodape"><b>Desbloqueando IA</b> · toda notícia passa por checagem e traz a fonte</p>';
+    main.innerHTML = html;
+    if (visiveis[0]) document.getElementById('data-edicao').textContent = rotuloDia(visiveis[0].data);
+
+    document.querySelectorAll('.chip').forEach(function(c){ c.onclick = function(){ aplicarFiltro(c.dataset.f, pr); }; });
+    main.querySelectorAll('[data-pn]').forEach(function(b){ b.onclick = function(){ mostrarPratica(pr, b.dataset.pn); }; });
+    main.querySelectorAll('.copiar').forEach(function(b){
+      b.addEventListener('click', function(){
+        var alvo = document.getElementById(b.dataset.alvo), rot = b.querySelector('span');
+        function ok(){ rot.textContent = 'Copiado'; setTimeout(function(){ rot.textContent = 'Copiar'; }, 1800); }
+        function selecionar(){ var r = document.createRange(); r.selectNodeContents(alvo); var s = getSelection(); s.removeAllRanges(); s.addRange(r); rot.textContent = 'Selecionado'; }
+        try { navigator.clipboard.writeText(alvo.innerText).then(ok, selecionar); } catch(e){ selecionar(); }
+      });
+    });
+    aplicarFiltro(filtro, pr);
+  }
+
+  function carregar(u){ return fetch(u + '?v=' + Math.floor(Date.now() / 3e5), {cache:'no-store'}).then(function(r){ if (!r.ok) throw new Error(u); return r.json(); }); }
+  Promise.all([carregar('dados/edicoes.json'), carregar('dados/praticas.json').catch(function(){ return {praticas:[]}; })])
+    .then(function(r){ render(r[0], r[1]); })
+    .catch(function(){ main.innerHTML = '<p class="vazio">Não foi possível carregar as notícias agora. Tente de novo em alguns minutos.</p>'; });
+
+  // Troca de edição às 09h sem recarregar a página: confere a cada 5 minutos
+  setInterval(function(){
+    Promise.all([carregar('dados/edicoes.json'), carregar('dados/praticas.json').catch(function(){ return {praticas:[]}; })]).then(function(r){ render(r[0], r[1]); });
+  }, 3e5);
+})();
+</script>
+</body>
+</html>
