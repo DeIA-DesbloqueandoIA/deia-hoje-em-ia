@@ -1,6 +1,80 @@
 {
-  "atualizado_em": "2026-11-21T19:30:00Z",
+  "atualizado_em": "2026-11-23T10:45:00Z",
   "edicoes": [
+    {
+      "data": "2026-11-23",
+      "publicar_em": "2026-11-23T12:00:00Z",
+      "posts": [
+        {
+          "id": "2026-11-23-claude-computer-use-team",
+          "nivel": "int",
+          "tema": "Ferramentas",
+          "titulo": "Claude ganha uso do computador nos planos Team e Enterprise",
+          "texto": "A Anthropic liberou em beta o uso do computador para os planos Team e Enterprise do Claude. Com ele, o Claude pode operar o computador para fazer tarefas por você. A função funciona no Claude Desktop e também pelo Claude na web e no celular quando o acesso ao computador estiver ligado. A liberação está sendo feita aos poucos, empresa por empresa.",
+          "para_quem": "Quem usa o Claude pelos planos Team ou Enterprise. Por ser beta, pode ainda não aparecer na sua organização.",
+          "como_usar": "A nota indica o artigo \"Set up computer use for Team and Enterprise plans\", com o passo a passo de configuração.",
+          "fontes": [
+            {
+              "nome": "Notas de versão do Claude (oficial)",
+              "url": "https://support.claude.com/articles/12138966-release-notes",
+              "data": "2026-11-20"
+            },
+            {
+              "nome": "Central de ajuda do Claude (oficial)",
+              "url": "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans",
+              "data": "2026-11-20"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-23-google-docs-cse-tempo-real",
+          "nivel": "int",
+          "tema": "Segurança",
+          "titulo": "Google Docs criptografado passa a aceitar edição em grupo",
+          "texto": "O Google Docs com criptografia do lado do cliente, em que só a própria empresa guarda as chaves, agora permite que várias pessoas escrevam, editem e comentem ao mesmo tempo. Antes, só uma pessoa podia editar por vez. A novidade está em beta para clientes das edições Enterprise Plus, Education Standard e Plus, Frontline Plus, Assured Controls e Assured Controls Plus.",
+          "para_quem": "Empresas e instituições de ensino que usam o Google Workspace nessas edições e precisam de documentos criptografados.",
+          "como_usar": "O administrador do Workspace se inscreve no beta pelo formulário indicado no anúncio. Depois da aprovação, a edição em grupo já vem ligada nos novos documentos criptografados.",
+          "fontes": [
+            {
+              "nome": "Google Workspace Updates (blog oficial)",
+              "url": "http://workspaceupdates.googleblog.com/2026/11/now-available-in-beta-collaborate-in-real-time-on-client-side-encrypted-Google-Docs.html",
+              "data": "2026-11-20"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-23-claude-mobile-visual",
+          "nivel": "ini",
+          "tema": "Ferramentas",
+          "titulo": "App do Claude no celular ganha visual novo",
+          "texto": "O aplicativo do Claude para celular está recebendo um visual renovado, começando pelo iPhone. Suas conversas, projetos e plano continuam iguais, e não é preciso ligar nada. O novo visual exige o iOS 26 ou mais recente.",
+          "para_quem": "Quem usa o Claude no iPhone com iOS 26 ou mais recente. A nota não fala do Android.",
+          "como_usar": "A mudança chega aos poucos. Basta manter o aplicativo atualizado.",
+          "fontes": [
+            {
+              "nome": "Notas de versão do Claude (oficial)",
+              "url": "https://support.claude.com/articles/12138966-release-notes",
+              "data": "2026-11-20"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-23-anthropic-ipo-concluido",
+          "nivel": "int",
+          "tema": "Mercado",
+          "titulo": "Anthropic conclui sua estreia na bolsa",
+          "texto": "A Anthropic anunciou a conclusão da sua abertura de capital, com 1,127 bilhão de ações vendidas a US$ 83 cada, o que somou cerca de US$ 93,5 bilhões. Ao mesmo tempo, AMD, Broadcom, Google, Micron, Microsoft, NVIDIA e TSMC compraram ações em uma venda privada de cerca de US$ 26 bilhões. As ações são negociadas na Nasdaq desde 19/11, com o código \"ANT\".",
+          "muda": "O anúncio trata da venda de ações; para quem usa o Claude, nada muda na rotina.",
+          "fontes": [
+            {
+              "nome": "Anthropic (comunicado oficial)",
+              "url": "https://www.anthropic.com/news/ipo-close",
+              "data": "2026-11-20"
+            }
+          ]
+        }
+      ]
+    },
     {
       "data": "2026-11-19",
       "publicar_em": "2026-11-19T12:00:00Z",
@@ -13,7 +87,11 @@
           "texto": "O Google lançou o Gemini 4 Neon, modelo voltado a programação, trabalho de conhecimento e ciência. Quem assina o Google AI Pro ou Ultra já pode escolhê-lo no app Gemini. Desenvolvedores têm acesso pela API do Gemini, no Google AI Studio, por US$ 3 por milhão de tokens de entrada e US$ 15 por milhão de saída.",
           "muda": "Se você assina o Pro ou o Ultra, vale testar o Neon em tarefas de várias etapas e comparar com o modelo que você usa hoje.",
           "fontes": [
-            {"nome": "Google (blog oficial)", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/", "data": "2026-11-18"}
+            {
+              "nome": "Google (blog oficial)",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+              "data": "2026-11-18"
+            }
           ]
         },
         {
@@ -24,8 +102,16 @@
           "texto": "A Anthropic definiu o preço de US$ 83 por ação para a sua abertura de capital, ou seja, para começar a vender ações na bolsa. A oferta tem 980 milhões de ações, e a negociação deve começar nesta quinta-feira, 19/11, na bolsa Nasdaq, com o código \"ANT\".",
           "muda": "O anúncio trata da venda de ações; não é preciso fazer nada.",
           "fontes": [
-            {"nome": "Anthropic (comunicado oficial)", "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering", "data": "2026-11-18"},
-            {"nome": "TechCrunch", "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/", "data": "2026-11-18"}
+            {
+              "nome": "Anthropic (comunicado oficial)",
+              "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+              "data": "2026-11-18"
+            },
+            {
+              "nome": "TechCrunch",
+              "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/",
+              "data": "2026-11-18"
+            }
           ]
         }
       ]
@@ -43,7 +129,11 @@
           "para_quem": "Quem usa o Claude Desktop, o aplicativo para computador. O plano não foi informado.",
           "como_usar": "A nota indica o artigo \"Choose a release channel\", com o passo a passo.",
           "fontes": [
-            {"nome": "Notas de versão do Claude (oficial)", "url": "https://support.claude.com/articles/12138966-release-notes", "data": "2026-11-17"}
+            {
+              "nome": "Notas de versão do Claude (oficial)",
+              "url": "https://support.claude.com/articles/12138966-release-notes",
+              "data": "2026-11-17"
+            }
           ]
         }
       ]
