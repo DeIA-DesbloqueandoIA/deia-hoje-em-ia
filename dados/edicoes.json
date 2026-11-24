@@ -1,6 +1,78 @@
 {
-  "atualizado_em": "2026-11-23T10:45:00Z",
+  "atualizado_em": "2026-11-24T10:45:00Z",
   "edicoes": [
+    {
+      "data": "2026-11-24",
+      "publicar_em": "2026-11-24T12:00:00Z",
+      "posts": [
+        {
+          "id": "2026-11-24-claude-ship",
+          "nivel": "dev",
+          "tema": "Ferramentas",
+          "titulo": "Anthropic lança o Claude Ship para cuidar dos pull requests",
+          "texto": "A Anthropic lançou em beta o Claude Ship, um conjunto de agentes que revisam, corrigem e aprovam mudanças de código no GitHub. O Code Review faz a revisão do pull request e já saiu do beta. O PR Steward resolve testes que falharam, conflitos e comentários da revisão, sem aprovar nem fazer o merge. O Claude Approvals aprova mudanças de rotina seguindo uma regra que a equipe escreve em um arquivo do repositório.",
+          "para_quem": "Equipes nos planos Team e Enterprise do Claude com repositórios no GitHub. Não vale para organizações com retenção zero de dados, configuração HIPAA ou chaves de criptografia próprias.",
+          "como_usar": "Quem programa pode rodar o comando /ship no Claude Code quando a mudança estiver pronta. O administrador liga os agentes por repositório nas configurações da organização. A cobrança é por uso, e a Anthropic sugere começar o Approvals no modo só de observação.",
+          "fontes": [
+            {
+              "nome": "Claude (anúncio oficial)",
+              "url": "https://claude.com/resources/articles/introducing-claude-ship",
+              "data": "2026-11-23"
+            },
+            {
+              "nome": "Documentação do Claude Code (oficial)",
+              "url": "https://code.claude.com/docs/en/claude-ship",
+              "data": "2026-11-23"
+            },
+            {
+              "nome": "TechCrunch",
+              "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+              "data": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-24-claude-efs-zdr",
+          "nivel": "int",
+          "tema": "Segurança",
+          "titulo": "Claude passa a vigiar abusos sem guardar dados das empresas",
+          "texto": "A Anthropic abriu um beta público do Enterprise Frontier Safeguards para clientes empresariais. Ele procura sinais de uso indevido olhando vários pedidos juntos, porque ataques mais sofisticados costumam ser divididos em pedidos que parecem inofensivos sozinhos. A análise usa dados guardados na infraestrutura do próprio cliente, e a Anthropic diz que nem ela nem o provedor de nuvem retêm esses dados.",
+          "muda": "Para empresas que exigem retenção zero de dados, fica possível ter esse tipo de monitoramento sem abrir mão da regra. Funciona na Claude Platform, na versão da AWS, no Amazon Bedrock e no Google Cloud. A Anthropic avisa diretamente os clientes elegíveis.",
+          "fontes": [
+            {
+              "nome": "Claude (anúncio oficial)",
+              "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards",
+              "data": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-24-google-agent-sites",
+          "nivel": "dev",
+          "tema": "Web",
+          "titulo": "Google explica como não bloquear os agentes dele no seu site",
+          "texto": "O Google publicou orientações para sites que querem receber o Google-Agent, nome usado pelos agentes do Google que navegam e fazem ações na web a pedido de uma pessoa. A página mostra como confirmar que o acesso é mesmo do Google: pelo nome no cabeçalho de identificação, pela lista oficial de endereços IP e, em teste, por uma assinatura digital.",
+          "muda": "Se o seu site usa firewall ou proteção contra robôs, vale conferir se esses acessos não estão sendo barrados. Isso pode impedir que alguém use um agente do Google para fazer uma tarefa no seu site.",
+          "fontes": [
+            {
+              "nome": "Google Search Central (documentação oficial)",
+              "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/allow-google-agent",
+              "data": "2026-11-17"
+            },
+            {
+              "nome": "Google Search Central, lista de fetchers (oficial)",
+              "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-user-triggered-fetchers",
+              "data": "2026-11-23"
+            },
+            {
+              "nome": "Search Engine Journal",
+              "url": "https://www.searchenginejournal.com/google-publishes-guidance-for-google-agent-crawler/598526",
+              "data": "2026-11-23"
+            }
+          ]
+        }
+      ]
+    },
     {
       "data": "2026-11-23",
       "publicar_em": "2026-11-23T12:00:00Z",
