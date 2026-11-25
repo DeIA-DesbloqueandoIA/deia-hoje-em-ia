@@ -1,6 +1,64 @@
 {
-  "atualizado_em": "2026-11-24T10:45:00Z",
+  "atualizado_em": "2026-11-25T10:30:00Z",
   "edicoes": [
+    {
+      "data": "2026-11-25",
+      "publicar_em": "2026-11-25T12:00:00Z",
+      "posts": [
+        {
+          "id": "2026-11-25-claude-artefato-app",
+          "nivel": "ini",
+          "tema": "Ferramentas",
+          "titulo": "Claude transforma artefatos em aplicativos no computador",
+          "texto": "A Anthropic começou a liberar em beta a opção de instalar um artefato do Claude como aplicativo no Mac ou no Windows. Artefato é o conteúdo que o Claude cria ao lado da conversa, como uma página ou uma pequena ferramenta. O artefato ganha ícone e janela próprios, como qualquer outro programa, e pode ser compartilhado. Ele só funciona com você conectado à internet e logado no Claude.",
+          "para_quem": "Quem usa o Claude para Mac ou Windows, em qualquer plano. No plano Enterprise a opção fica desligada até o administrador ligar. Organizações com configuração HIPAA não têm acesso, e documentos, apresentações e planilhas do Claude não podem ser instalados.",
+          "como_usar": "Atualize o aplicativo do Claude no computador e escolha instalar o artefato como app. O app pede permissão em níveis, e volta a pedir depois de cada atualização. Os pedidos que ele faz ao Claude contam no limite de uso do seu plano.",
+          "fontes": [
+            {
+              "nome": "Claude (anúncio oficial)",
+              "url": "https://claude.com/resources/articles/install-as-app",
+              "data": "2026-11-24"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-25-workspace-mcp-cli",
+          "nivel": "int",
+          "tema": "Ferramentas",
+          "titulo": "Google Workspace libera conexão oficial para agentes de IA",
+          "texto": "O Google deixou disponíveis para todos os clientes do Workspace os servidores MCP e a linha de comando oficial do Workspace. MCP é o padrão que permite a um agente de IA ler e usar ferramentas como Gmail, Agenda e Drive. O Google também criou faixas de uso das APIs: a faixa padrão continua sem custo, com limites publicados.",
+          "muda": "Quem conecta agentes de IA ao Workspace da empresa vai precisar usar o MCP: a partir de 1º de fevereiro de 2027, agentes não poderão mais chamar as APIs do Workspace diretamente. A partir de 1º de abril de 2027, o uso acima da cota diária gratuita passa a ser cobrado na faixa de uso maior. A liberação chega a todos os domínios em até duas semanas.",
+          "fontes": [
+            {
+              "nome": "Google Workspace Updates (oficial)",
+              "url": "http://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+              "data": "2026-11-24"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-25-skills-over-mcp",
+          "nivel": "dev",
+          "tema": "Ferramentas",
+          "titulo": "Conectores do Claude passam a trazer habilidades prontas",
+          "texto": "A Anthropic anunciou que servidores MCP agora podem entregar habilidades (skills) junto com suas ferramentas, em beta público no Claude e no Claude Code. Assim, quem conecta um serviço já recebe as instruções de como usá-lo bem. A empresa também tornou disponíveis para todos os assinantes Pro, Max e Ultra as tarefas em segundo plano (Tasks) e os pedidos de informação ao usuário durante a execução (Elicitation).",
+          "para_quem": "Quem desenvolve servidores MCP ou usa conectores no Claude. As habilidades já vêm ligadas nos planos Pro, Max e Ultra e, no Team, dependem do administrador. No Enterprise chegam em breve.",
+          "como_usar": "Quem mantém um servidor MCP pode incluir habilidades nele para que o Claude saiba usar as ferramentas sem configuração extra. Shopify, HubSpot e Atlassian estão entre os primeiros parceiros. O envio de arquivos pelo MCP ainda vai ser liberado.",
+          "fontes": [
+            {
+              "nome": "Claude (anúncio oficial)",
+              "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more",
+              "data": "2026-11-24"
+            },
+            {
+              "nome": "Tech Times",
+              "url": "https://www.techtimes.com/articles/331491/20261125/anthropic-launches-skills-over-mcp-beta-server-skills-update-without-reinstall-approval-unstated.htm",
+              "data": "2026-11-25"
+            }
+          ]
+        }
+      ]
+    },
     {
       "data": "2026-11-24",
       "publicar_em": "2026-11-24T12:00:00Z",
