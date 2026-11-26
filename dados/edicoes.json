@@ -1,6 +1,63 @@
 {
-  "atualizado_em": "2026-11-25T10:30:00Z",
+  "atualizado_em": "2026-11-26T10:30:00Z",
   "edicoes": [
+    {
+      "data": "2026-11-26",
+      "publicar_em": "2026-11-26T12:00:00Z",
+      "posts": [
+        {
+          "id": "2026-11-26-openai-private-inference",
+          "nivel": "int",
+          "tema": "Segurança",
+          "titulo": "OpenAI testa proteção extra para dados enviados à IA",
+          "texto": "A OpenAI começou a testar o Private Inference com um pequeno grupo de clientes, segundo anúncio de Sam Altman. O recurso usa computação confidencial para proteger perguntas e respostas enquanto o modelo trabalha nelas. Ele ainda está em fase alfa e faz parte do pacote Private Intelligence, que já inclui a opção de não guardar dados (ZDR) para clientes elegíveis da API.",
+          "muda": "Para empresas que deixam de usar IA por medo de expor dados sensíveis, isso pode abrir caminho para novos usos no futuro. Por enquanto o acesso é restrito e a OpenAI não divulgou preço nem quem pode entrar. Quem tem interesse pode se cadastrar no formulário da empresa e acompanhar a ampliação, que depende de capacidade de computação que a OpenAI ainda está garantindo.",
+          "fontes": [
+            {
+              "nome": "OpenAI (página oficial do Private Intelligence)",
+              "url": "https://openai.com/business/private-intelligence/",
+              "data": "2026-11-26"
+            },
+            {
+              "nome": "Unite.AI",
+              "url": "https://www.unite.ai/openai-begins-limited-customer-trials-of-alpha-private-inference/",
+              "data": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-26-antigravity-mass-spec",
+          "nivel": "int",
+          "tema": "Ciência",
+          "titulo": "Google lança habilidades de IA para identificar moléculas",
+          "texto": "O Google DeepMind lançou as Mass Spec Skills no Google Antigravity, sua ferramenta de agentes. São habilidades que juntam o raciocínio químico do Gemini com programas de espectrometria de massa e bancos públicos de dados químicos. O agente analisa os espectros, sugere a estrutura da molécula e entrega um relatório que pode ser conferido passo a passo.",
+          "para_quem": "Pesquisadores e laboratórios que trabalham com espectrometria de massa em química, farmácia ou biologia. O Google não informou preço para as habilidades.",
+          "como_usar": "Instale o plugin Mass Spec no aplicativo Antigravity. Quem usa conta de empresa pode entrar com as credenciais do Google Cloud. O Google também abriu inscrições para dar a 10 mil cientistas o maior nível de uso do Antigravity de graça por 6 meses, sujeito a seleção.",
+          "fontes": [
+            {
+              "nome": "Google DeepMind (blog oficial)",
+              "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+              "data": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-26-bigquery-cross-cloud",
+          "nivel": "dev",
+          "tema": "Dados",
+          "titulo": "BigQuery consulta dados da AWS e da Azure em todas as regiões",
+          "texto": "O Google liberou para uso geral as conexões entre nuvens do BigQuery. Com elas, dá para consultar dados guardados na AWS, na Azure e no Salesforce Data 360 a partir de qualquer região do BigQuery, sem copiar tudo para o Google Cloud. Na mesma atualização, o Google anunciou o fim da versão v1beta1 da Storage API.",
+          "muda": "Equipes de dados com informações espalhadas em várias nuvens podem cruzar tudo em um só lugar. Quem ainda usa a Storage API v1beta1 precisa migrar para a versão v1, que é compatível: o acesso já foi restrito em 20 de novembro de 2026 e o desligamento total será em 31 de agosto de 2027, quando as chamadas passam a falhar.",
+          "fontes": [
+            {
+              "nome": "Google Cloud (notas de versão do BigQuery)",
+              "url": "https://docs.cloud.google.com/bigquery/docs/release-notes",
+              "data": "2026-11-25"
+            }
+          ]
+        }
+      ]
+    },
     {
       "data": "2026-11-25",
       "publicar_em": "2026-11-25T12:00:00Z",
