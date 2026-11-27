@@ -1,6 +1,47 @@
 {
-  "atualizado_em": "2026-11-26T10:30:00Z",
+  "atualizado_em": "2026-11-27T10:30:00Z",
   "edicoes": [
+    {
+      "data": "2026-11-27",
+      "publicar_em": "2026-11-27T12:00:00Z",
+      "posts": [
+        {
+          "id": "2026-11-27-chatgpt-limite-compartilhado",
+          "nivel": "ini",
+          "tema": "Ferramentas",
+          "titulo": "ChatGPT vai juntar os limites de uso em um só",
+          "texto": "A OpenAI avisou que, a partir de dezembro, os planos Plus, Pro e Business do ChatGPT terão um único limite de uso compartilhado entre o ChatGPT e o Codex. A mudança acompanha a chegada dos recursos de agente do Work à tela principal do ChatGPT. Um pequeno grupo de assinantes Pro já começou a receber a nova experiência. Conversas com o modelo Instant continuam ilimitadas e não contam nesse limite.",
+          "muda": "Quem usa muito o ChatGPT e o Codex no mesmo plano pode chegar ao limite mais cedo, já que tudo passa a sair da mesma cota. A OpenAI diz que a maioria das pessoas não vai notar diferença. O consumo e o horário de renovação aparecem em Configurações, na área de uso. Ao chegar no limite, dá para esperar a renovação, mudar de plano, comprar créditos ou seguir usando o Instant.",
+          "fontes": [
+            {
+              "nome": "OpenAI (Central de Ajuda)",
+              "url": "https://help.openai.com/en/articles/20001625-understand-chatgpt-and-codex-usage-limits",
+              "data": "2026-11-26"
+            },
+            {
+              "nome": "TechCrunch",
+              "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+              "data": "2026-11-25"
+            }
+          ]
+        },
+        {
+          "id": "2026-11-27-anthropic-api-rust",
+          "nivel": "dev",
+          "tema": "Desenvolvimento",
+          "titulo": "Claude reescreve a API da Anthropic em Rust",
+          "texto": "A Anthropic contou como migrou sua Messages API, escrita em Python em 2023, para a linguagem Rust. Segundo a empresa, o Claude escreveu a primeira versão do caminho principal das requisições em cerca de uma semana, e equipes de agentes do Claude conferiram o resultado comparando com o tráfego real. O tráfego público passou para o Rust em setembro de 2026, sem tirar o serviço do ar. A nova versão usa cerca de 70% menos processamento e mais de 80% menos memória por requisição, e reduziu em cerca de 20% o tempo até a primeira resposta.",
+          "muda": "Para quem usa a API, nada precisa ser feito: a empresa não anunciou mudança de preço nem de formato. Para times de desenvolvimento, o texto é um caso real de migração grande feita com agentes de IA, e mostra que passar nos testes não bastou: em abril o código passava em 98% dos testes, mas só cerca de um quarto das respostas batia com as do sistema antigo. Vale ler antes de planejar uma reescrita com IA.",
+          "fontes": [
+            {
+              "nome": "Anthropic (blog oficial)",
+              "url": "https://www.anthropic.com/research/migrating-api-to-rust",
+              "data": "2026-11-25"
+            }
+          ]
+        }
+      ]
+    },
     {
       "data": "2026-11-26",
       "publicar_em": "2026-11-26T12:00:00Z",
